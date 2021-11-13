@@ -88,11 +88,24 @@ The application enables users to digitalize hand written notes. Primarily it wou
 
 ### [BONUS] Interactive Prototype
 <img src="https://i.imgur.com/D9Sx4g8.gif" width=600>
+
+
 ## Schema 
-[This section will be completed in Unit 9]
+
 ### Models
-[Add table of models]
+
+#### Document
+Document is the only object we will be dealing during the main development phase of our project. The object's properties are as follows: 
+
+
+|  Property |  Property | Description |
+| -------- | -------- | -------- |
+|id        |String|This is the identifier of the document|
+|name      |String|Human readable name of the document|
+|createdAt |Date  |The date this document was created|
+|editedAt  |Date  |The date the document was edited |
+|size      |Int   |A property to show the date the documents' size |
+
+
 ### Networking
-- [Add list of network requests by screen ]
-- [Create basic snippets for each Parse network request]
-- [OPTIONAL: List endpoints if using existing API such as Yelp]
+- Our application will be working solely on local files and will not have any type of network interaction at this stage. 
