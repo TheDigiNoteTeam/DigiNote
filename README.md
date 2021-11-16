@@ -109,3 +109,9 @@ Document is the only object we will be dealing during the main development phase
 
 ### Networking
 - Our application will be working solely on local files and will not have any type of network interaction at this stage. 
+
+### Sprint Plan
+[x] GitHub Project created. \
+[x] GitHub Milestones created. \
+[x] GitHub Issues created from user stories. \
+[x] Issues added to project and assigned to specific team members.  
