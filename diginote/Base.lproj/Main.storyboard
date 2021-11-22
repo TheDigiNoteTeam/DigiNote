@@ -40,7 +40,7 @@
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Gallery" image="baseline_collections_black_48pt"/>
                                 <connections>
-                                    <action selector="gallerBtnClicked:" destination="xB6-Va-yQ6" eventType="touchUpInside" id="9CA-qk-tzx"/>
+                                    <action selector="openPhotoGalleryBtn:" destination="xB6-Va-yQ6" eventType="touchUpInside" id="wor-w2-6hS"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ywj-E5-y7w">
@@ -52,7 +52,7 @@
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Camera" image="baseline_photo_camera_black_72pt"/>
                                 <connections>
-                                    <action selector="cameraBtnClicked:" destination="xB6-Va-yQ6" eventType="touchUpInside" id="oc1-pY-uAU"/>
+                                    <action selector="openCameraBtn:" destination="xB6-Va-yQ6" eventType="touchUpInside" id="JIK-i9-VHS"/>
                                 </connections>
                             </button>
                         </subviews>

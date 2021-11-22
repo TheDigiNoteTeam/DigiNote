@@ -10,16 +10,24 @@ import UIKit
 class NoteViewController: UIViewController {
    
     
+    var imagePicked: UIImage!
+    @IBAction func openPhotoGalleryBtn(_ sender: Any) {
+        let imagePicker = UIImagePickerController()
+        imagePicker.sourceType = .photoLibrary
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = true
+        present(imagePicker, animated: true)
+    }
     
-//    @IBOutlet var imageView: UIImageView
-//    var imagePicker: ImagePic
-    @IBAction func cameraBtnClicked(_ sender: Any) {
+    @IBAction func openCameraBtn(_ sender: Any) {
+        let imagePicker = UIImagePickerController()
+        imagePicker.sourceType = .camera
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = true
+        present(imagePicker, animated: true)
         
     }
     
-    
-    @IBAction func gallerBtnClicked(_ sender: Any) {
-    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -37,4 +45,21 @@ class NoteViewController: UIViewController {
     }
     */
 
+}
+
+extension NoteViewController: UIImagePickerControllerDelegate,
+                              UINavigationControllerDelegate {
+                                  
+      func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+          picker.dismiss(animated: true, completion: nil)
+      }
+      
+      func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+          picker.dismiss(animated: true, completion: nil)
+          guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else{
+              return
+          }
+          
+          imagePicked = image
+      }
 }
