@@ -1,0 +1,6 @@
+framework module Pods_diginote {
+  umbrella header "Pods-diginote-umbrella.h"
+
+  export *
+  module * { export * }
+}
