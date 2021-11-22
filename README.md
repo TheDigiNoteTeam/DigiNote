@@ -115,3 +115,8 @@ Document is the only object we will be dealing during the main development phase
 [x] GitHub Milestones created. \
 [x] GitHub Issues created from user stories. \
 [x] Issues added to project and assigned to specific team members.  
+
+#### Unit 10 Submission
+
+##### GIF
+<img src="https://i.imgur.com/xJXK2IQ.gif" width=600>
