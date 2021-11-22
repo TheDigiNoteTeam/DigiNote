@@ -4,7 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -15,8 +15,22 @@
                     <view key="view" contentMode="scaleToFill" id="oWT-Kn-1EV">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rj9-4b-THK">
+                                <rect key="frame" x="20" y="88" width="374" height="61"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Appearance"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cMB-4Y-rxD">
+                                <rect key="frame" x="20" y="184" width="374" height="71"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Cloud Backup"/>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="g7V-M7-ZSh"/>
-                        <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="Aas-0p-NUo"/>
@@ -57,7 +71,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="FiE-Aa-45g"/>
-                        <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Ywj-E5-y7w" firstAttribute="leading" secondItem="N7o-bW-QHQ" secondAttribute="leadingMargin" id="Dlt-gL-Et5"/>
                             <constraint firstItem="Ywj-E5-y7w" firstAttribute="trailing" secondItem="N2M-Pf-nfv" secondAttribute="trailing" id="M9K-nz-GdM"/>
@@ -75,21 +89,46 @@
             </objects>
             <point key="canvasLocation" x="2613.04347826087" y="829.6875"/>
         </scene>
-        <!--HomeViewController-->
-        <scene sceneID="y0r-PX-Phu">
+        <!--HomeCollectionViewController-->
+        <scene sceneID="3yG-8w-Ddc">
             <objects>
-                <viewController title="HomeViewController" interfaceStyle="dark" id="Pte-hg-x2l" customClass="HomeViewController" customModule="diginote" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="p4M-DV-qaD">
+                <collectionViewController title="HomeCollectionViewController" id="F9O-LU-M6S" customClass="HomeCollectionViewController" customModule="diginote" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="I3n-kV-ZLP">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="x8r-B2-M1k"/>
-                        <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="E0I-2T-ul0"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jV5-Jq-4Np" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="aTj-2E-wQ6">
+                            <size key="itemSize" width="128" height="128"/>
+                            <size key="headerReferenceSize" width="50" height="50"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FileCollectionViewCell" id="B4Q-0e-K9G">
+                                <rect key="frame" x="0.0" y="50" width="128" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="X2s-6F-rO3">
+                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </collectionViewCellContentView>
+                            </collectionViewCell>
+                        </cells>
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ove-fK-pA7">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </collectionReusableView>
+                        <connections>
+                            <outlet property="dataSource" destination="F9O-LU-M6S" id="HEl-wL-QYZ"/>
+                            <outlet property="delegate" destination="F9O-LU-M6S" id="Cd5-mj-IfL"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" id="IiP-q6-fMC">
+                        <nil key="title"/>
+                    </navigationItem>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pfG-mm-VV0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2614.4927536231885" y="-619.41964285714278"/>
+            <point key="canvasLocation" x="2613" y="-619"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="UUD-sl-IBt">
@@ -141,7 +180,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="Pte-hg-x2l" kind="relationship" relationship="rootViewController" id="6oA-Ay-F6f"/>
+                        <segue destination="F9O-LU-M6S" kind="relationship" relationship="rootViewController" id="X5q-5E-70c"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sNd-PG-fdL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -173,8 +212,5 @@
         <image name="baseline_home_black_48pt" width="48" height="48"/>
         <image name="baseline_photo_camera_black_72pt" width="72" height="72"/>
         <image name="baseline_settings_black_48pt" width="48" height="48"/>
-        <systemColor name="opaqueSeparatorColor">
-            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
     </resources>
 </document>

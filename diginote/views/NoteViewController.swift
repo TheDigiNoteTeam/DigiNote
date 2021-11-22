@@ -6,9 +6,12 @@
 //
 
 import UIKit
+import Vision
+
 
 class NoteViewController: UIViewController {
    
+    var text: String!
     
     var imagePicked: UIImage!
     @IBAction func openPhotoGalleryBtn(_ sender: Any) {
@@ -21,16 +24,25 @@ class NoteViewController: UIViewController {
     
     @IBAction func openCameraBtn(_ sender: Any) {
         let imagePicker = UIImagePickerController()
-        imagePicker.sourceType = .camera
         imagePicker.delegate = self
         imagePicker.allowsEditing = true
+        
+        if UIImagePickerController.isSourceTypeAvailable(.camera){
+            imagePicker.sourceType = .camera
+        } else {
+            imagePicker.sourceType = .photoLibrary
+        }
+        
+        
         present(imagePicker, animated: true)
         
     }
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+//        recognizeText(image: self.imagePicked)
         // Do any additional setup after loading the view.
     }
     
@@ -44,7 +56,45 @@ class NoteViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    
+    func recognizeText(image: UIImage?){
+        guard let cgImage = image?.cgImage else {
+            fatalError("Could not get CG Image")
+        }
+        
+        // handler
+        let handler = VNImageRequestHandler(cgImage: cgImage, options: [:])
+        
+        // Request
+        let request = VNRecognizeTextRequest { request, error in
+            guard let observations = request.results as? [VNRecognizedTextObservation],
+                  error == nil else {
+                      return
+                  }
+            
+            let text = observations.compactMap({
+                $0.topCandidates(1).first?.string
+            }).joined(separator: ", ")
+            
+            
+            
+            DispatchQueue.main.async {
+//                self.text = text
+                print(text)
+                print("done here")
+            }
+            
+            
+        }
+        
+        //process
+        do {
+            try handler.perform([request])
+        }
+        catch {
+            print(error	)
+        }
+    }
 }
 
 extension NoteViewController: UIImagePickerControllerDelegate,
@@ -60,6 +110,7 @@ extension NoteViewController: UIImagePickerControllerDelegate,
               return
           }
           
-          imagePicked = image
+//          self.imagePicked = image
+          recognizeText(image: image)
       }
 }
