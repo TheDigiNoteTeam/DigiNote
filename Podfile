@@ -5,10 +5,6 @@ target 'diginote' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
-  pod 'Floaty', '~> 4.2.0'
-  #pod 'Alamofire'
-  #pod 'AlamofireImage'
-  #pod 'Parse'
-  #pod 'MBProgressHUD'
-  #pod 'MessageInputBar'
+  # Pods for Yelpy
+  pod 'Firebase/Core'
 end

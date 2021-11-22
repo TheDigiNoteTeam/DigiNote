@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		71936495C0B5C0132E9ACD13 /* Pods_diginote.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9542842652588F16D80A5621 /* Pods_diginote.framework */; };
 		F61AECBE27422AE800FCB4C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61AECBD27422AE800FCB4C5 /* AppDelegate.swift */; };
 		F61AECC027422AE800FCB4C5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61AECBF27422AE800FCB4C5 /* SceneDelegate.swift */; };
 		F61AECC527422AE800FCB4C5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F61AECC327422AE800FCB4C5 /* Main.storyboard */; };
@@ -40,6 +41,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6F7DDA93C066CB532BB08043 /* Pods-diginote.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-diginote.release.xcconfig"; path = "Target Support Files/Pods-diginote/Pods-diginote.release.xcconfig"; sourceTree = "<group>"; };
+		816F6EFB933D2D2EDFDCD914 /* Pods-diginote.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-diginote.debug.xcconfig"; path = "Target Support Files/Pods-diginote/Pods-diginote.debug.xcconfig"; sourceTree = "<group>"; };
+		9542842652588F16D80A5621 /* Pods_diginote.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_diginote.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F61AECBA27422AE800FCB4C5 /* diginote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = diginote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F61AECBD27422AE800FCB4C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F61AECBF27422AE800FCB4C5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -64,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71936495C0B5C0132E9ACD13 /* Pods_diginote.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,9 +89,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8A98A9FFFC3493825894443E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9542842652588F16D80A5621 /* Pods_diginote.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A8D1731DAE4D253B8FD3EE72 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
+				816F6EFB933D2D2EDFDCD914 /* Pods-diginote.debug.xcconfig */,
+				6F7DDA93C066CB532BB08043 /* Pods-diginote.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -99,6 +114,7 @@
 				F61AECDD27422AEB00FCB4C5 /* diginoteUITests */,
 				F61AECBB27422AE800FCB4C5 /* Products */,
 				A8D1731DAE4D253B8FD3EE72 /* Pods */,
+				8A98A9FFFC3493825894443E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -178,9 +194,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F61AECE427422AEB00FCB4C5 /* Build configuration list for PBXNativeTarget "diginote" */;
 			buildPhases = (
+				8CA96A5D1E234BDD6F72CD71 /* [CP] Check Pods Manifest.lock */,
 				F61AECB627422AE800FCB4C5 /* Sources */,
 				F61AECB727422AE800FCB4C5 /* Frameworks */,
 				F61AECB827422AE800FCB4C5 /* Resources */,
+				79DB9AE264DDD6E5FFACB246 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -297,6 +315,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		79DB9AE264DDD6E5FFACB246 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-diginote/Pods-diginote-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-diginote/Pods-diginote-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-diginote/Pods-diginote-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8CA96A5D1E234BDD6F72CD71 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-diginote-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F61AECB627422AE800FCB4C5 /* Sources */ = {
@@ -482,6 +542,7 @@
 		};
 		F61AECE527422AEB00FCB4C5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 816F6EFB933D2D2EDFDCD914 /* Pods-diginote.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -510,6 +571,7 @@
 		};
 		F61AECE627422AEB00FCB4C5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6F7DDA93C066CB532BB08043 /* Pods-diginote.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

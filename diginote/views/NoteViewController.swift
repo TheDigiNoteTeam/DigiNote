@@ -7,7 +7,7 @@
 
 import UIKit
 import Vision
-import Firebase
+//import Firebase
 
 class NoteViewController: UIViewController {
    
@@ -57,21 +57,21 @@ class NoteViewController: UIViewController {
     }
     */
     
-    func recognizeTextFirebase(image: UIImage){
-        let vision = Vision.vision()
-        let vImage = VisionImage(image: image)
-        let textRecognizer = vision.cloudTextRecognizer()
-        
-        textRecognizer.process(vImage){ result, error in
-            guard error == nil, let result = result else {
-                return
-            }
-            
-            let resultText = result.text
-
-            print(resultText)
-        }
-    }
+//    func recognizeTextFirebase(image: UIImage){
+//        let vision = Vision.vision()
+//        let vImage = VisionImage(image: image)
+//        let textRecognizer = vision.cloudTextRecognizer()
+//
+//        textRecognizer.process(vImage){ result, error in
+//            guard error == nil, let result = result else {
+//                return
+//            }
+//
+//            let resultText = result.text
+//
+//            print(resultText)
+//        }
+//    }
     
     func recognizeText(image: UIImage?){
         guard let cgImage = image?.cgImage else {
@@ -126,7 +126,7 @@ extension NoteViewController: UIImagePickerControllerDelegate,
               return
           }
           
-          recognizeTextFirebase(image: image)
+//          recognizeTextFirebase(image: image)
 //          self.imagePicked = image
 //          recognizeText(image: image)
       }
