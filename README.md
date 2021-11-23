@@ -120,7 +120,7 @@ Document is the only object we will be dealing during the main development phase
 
 #### Completed User Stories
 [x] User can click on on Gallery button and choose photos. \
-[x] User can work with locally stored photos. \
+[x] User can work with locally stored photos. 
 
 ##### GIF
 <img src="https://i.imgur.com/xJXK2IQ.gif" width=600>
