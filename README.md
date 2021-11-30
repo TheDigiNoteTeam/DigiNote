@@ -124,3 +124,15 @@ Document is the only object we will be dealing during the main development phase
 
 ##### GIF
 <img src="https://i.imgur.com/xJXK2IQ.gif" width=600>
+
+
+#### Unit 11 Submission
+This week had a setback and had to revise our app. The original intent was to use the Vision Framework to implement the app. But the text extraction on that framework only had an accuracy of about 75% for handwritten text. So we revised and decided to use Firebase's MLKit. Because of that we weren't able to achieve our previously set goals and had to focus on learning about Firebase. Hence, we revised our milestones and updated them. 
+
+#### Completed User Stories
+[x] The app is connected to Firebase. 
+[x] Users can sign up/in with Firebase.
+[x] Cloud Function for text extraction from image implemented
+
+##### GIF
+<img src="https://i.imgur.com/HuVB4bo.gif" width=600>
