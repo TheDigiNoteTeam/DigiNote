@@ -7,4 +7,6 @@ target 'diginote' do
 
   # Pods for Yelpy
   pod 'Firebase/Core'
+  pod 'Firebase/Functions'
+  pod 'Firebase/Auth'
 end
