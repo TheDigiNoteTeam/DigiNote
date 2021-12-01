@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
 
 private let reuseIdentifier = "Cell"
 
@@ -22,6 +24,9 @@ class HomeCollectionViewController: UICollectionViewController {
 
         // Do any additional setup after loading the view.
     }
+    
+    
+    
 
     /*
     // MARK: - Navigation

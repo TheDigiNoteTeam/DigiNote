@@ -7,14 +7,16 @@
 
 import UIKit
 import Vision
-//import Firebase
+import Firebase
+import FirebaseFunctions
 
 class NoteViewController: UIViewController {
    
     var text: String!
-    
     var imagePicked: UIImage!
+    
     @IBAction func openPhotoGalleryBtn(_ sender: Any) {
+        
         let imagePicker = UIImagePickerController()
         imagePicker.sourceType = .photoLibrary
         imagePicker.delegate = self
@@ -23,6 +25,7 @@ class NoteViewController: UIViewController {
     }
     
     @IBAction func openCameraBtn(_ sender: Any) {
+        
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         imagePicker.allowsEditing = true
@@ -43,6 +46,7 @@ class NoteViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 //        recognizeText(image: self.imagePicked)
+//        recognizeTextFirebase(image: self.imagePicked)
         // Do any additional setup after loading the view.
     }
     
@@ -57,21 +61,40 @@ class NoteViewController: UIViewController {
     }
     */
     
-//    func recognizeTextFirebase(image: UIImage){
-//        let vision = Vision.vision()
-//        let vImage = VisionImage(image: image)
-//        let textRecognizer = vision.cloudTextRecognizer()
-//
-//        textRecognizer.process(vImage){ result, error in
-//            guard error == nil, let result = result else {
-//                return
-//            }
-//
-//            let resultText = result.text
-//
-//            print(resultText)
-//        }
-//    }
+    func recognizeTextFirebase(image: UIImage){
+        guard let imageData = image.jpegData(compressionQuality: 1.0) else { return }
+        let base64encodedImage = imageData.base64EncodedString()
+        
+        lazy var functions = Functions.functions()
+        
+        let requestData = [
+          "image": ["content": base64encodedImage],
+          "features": ["type": "DOCUMENT_TEXT_DETECTION"],
+          "imageContext": ["languageHints": ["en-t-i0-handwrit"]],
+        ]
+
+        functions.httpsCallable("annotageImage").call(requestData) { result, error in
+            if let error = error as NSError? {
+                if error.domain == FunctionsErrorDomain{
+                    let code = FunctionsErrorCode(rawValue: error.code)
+                    let message = error.localizedDescription
+                    let details = error.userInfo[FunctionsErrorDetailsKey]
+//                    print(code,message,details!!!!)
+//                    print(error)
+                    print("Code is\n:\(code)")
+                    print("Message is:\n\(message)")
+                    print("Details:\n\(details)")
+                    print("Error Complete:\n\(error)")
+                    return
+                }
+            }
+            print("SUCCESS")
+            guard let annotation = (result?.data as? [String: Any])?["fullTextAnnotation"] as? [String: Any] else { return }
+            print("%nComplete annotation:")
+            let text = annotation["text"] as? String ?? ""
+            print("%n\(text)")
+        }
+    }
     
     func recognizeText(image: UIImage?){
         guard let cgImage = image?.cgImage else {
@@ -125,9 +148,10 @@ extension NoteViewController: UIImagePickerControllerDelegate,
           guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else{
               return
           }
-          
-//          recognizeTextFirebase(image: image)
-//          self.imagePicked = image
+           
+          self.imagePicked = image
+          recognizeTextFirebase(image: image)
+//
 //          recognizeText(image: image)
       }
 }

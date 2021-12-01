@@ -18,6 +18,7 @@
 		F61AECE127422AEB00FCB4C5 /* diginoteUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61AECE027422AEB00FCB4C5 /* diginoteUITestsLaunchTests.swift */; };
 		F61AECF12742422900FCB4C5 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61AECF02742422900FCB4C5 /* SettingsViewController.swift */; };
 		F6291D852743955A008F5A7F /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6291D842743955A008F5A7F /* NoteViewController.swift */; };
+		F6681FDD275541ED00D0F96B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6681FDC275541ED00D0F96B /* LoginViewController.swift */; };
 		F6EA994D274B443400F4BF4E /* HomeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6EA994C274B443400F4BF4E /* HomeCollectionViewController.swift */; };
 		F6EA994F274B448F00F4BF4E /* FileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6EA994E274B448F00F4BF4E /* FileCollectionViewCell.swift */; };
 		F6EA9955274B746D00F4BF4E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F6EA9954274B746D00F4BF4E /* GoogleService-Info.plist */; };
@@ -58,6 +59,7 @@
 		F61AECE027422AEB00FCB4C5 /* diginoteUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = diginoteUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		F61AECF02742422900FCB4C5 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		F6291D842743955A008F5A7F /* NoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
+		F6681FDC275541ED00D0F96B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F6EA994C274B443400F4BF4E /* HomeCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewController.swift; sourceTree = "<group>"; };
 		F6EA994E274B448F00F4BF4E /* FileCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileCollectionViewCell.swift; sourceTree = "<group>"; };
 		F6EA9954274B746D00F4BF4E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 				F6291D842743955A008F5A7F /* NoteViewController.swift */,
 				F6EA994C274B443400F4BF4E /* HomeCollectionViewController.swift */,
 				F6EA994E274B448F00F4BF4E /* FileCollectionViewCell.swift */,
+				F6681FDC275541ED00D0F96B /* LoginViewController.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -363,6 +366,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6681FDD275541ED00D0F96B /* LoginViewController.swift in Sources */,
 				F61AECBE27422AE800FCB4C5 /* AppDelegate.swift in Sources */,
 				F61AECC027422AE800FCB4C5 /* SceneDelegate.swift in Sources */,
 				F6291D852743955A008F5A7F /* NoteViewController.swift in Sources */,
@@ -551,6 +555,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = diginote/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = DigiNote;
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app wants to use your photos.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This app wants to use your photos.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -580,6 +587,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = diginote/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = DigiNote;
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app wants to use your photos.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This app wants to use your photos.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
