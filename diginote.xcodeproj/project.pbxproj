@@ -10,7 +10,6 @@
 		71936495C0B5C0132E9ACD13 /* Pods_diginote.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9542842652588F16D80A5621 /* Pods_diginote.framework */; };
 		F61AECBE27422AE800FCB4C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61AECBD27422AE800FCB4C5 /* AppDelegate.swift */; };
 		F61AECC027422AE800FCB4C5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61AECBF27422AE800FCB4C5 /* SceneDelegate.swift */; };
-		F61AECC527422AE800FCB4C5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F61AECC327422AE800FCB4C5 /* Main.storyboard */; };
 		F61AECC727422AEA00FCB4C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F61AECC627422AEA00FCB4C5 /* Assets.xcassets */; };
 		F61AECCA27422AEA00FCB4C5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F61AECC827422AEA00FCB4C5 /* LaunchScreen.storyboard */; };
 		F61AECD527422AEB00FCB4C5 /* diginoteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61AECD427422AEB00FCB4C5 /* diginoteTests.swift */; };
@@ -19,6 +18,8 @@
 		F61AECF12742422900FCB4C5 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61AECF02742422900FCB4C5 /* SettingsViewController.swift */; };
 		F6291D852743955A008F5A7F /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6291D842743955A008F5A7F /* NoteViewController.swift */; };
 		F6681FDD275541ED00D0F96B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6681FDC275541ED00D0F96B /* LoginViewController.swift */; };
+		F6E0EB9B2758945B00A65F3F /* PdfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E0EB9A2758945B00A65F3F /* PdfViewController.swift */; };
+		F6E0EB9D27589D9E00A65F3F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6E0EB9C27589D9E00A65F3F /* Main.storyboard */; };
 		F6EA994D274B443400F4BF4E /* HomeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6EA994C274B443400F4BF4E /* HomeCollectionViewController.swift */; };
 		F6EA994F274B448F00F4BF4E /* FileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6EA994E274B448F00F4BF4E /* FileCollectionViewCell.swift */; };
 		F6EA9955274B746D00F4BF4E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F6EA9954274B746D00F4BF4E /* GoogleService-Info.plist */; };
@@ -48,7 +49,6 @@
 		F61AECBA27422AE800FCB4C5 /* diginote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = diginote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F61AECBD27422AE800FCB4C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F61AECBF27422AE800FCB4C5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		F61AECC427422AE800FCB4C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F61AECC627422AEA00FCB4C5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F61AECC927422AEA00FCB4C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F61AECCB27422AEA00FCB4C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -60,6 +60,8 @@
 		F61AECF02742422900FCB4C5 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		F6291D842743955A008F5A7F /* NoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
 		F6681FDC275541ED00D0F96B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		F6E0EB9A2758945B00A65F3F /* PdfViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PdfViewController.swift; sourceTree = "<group>"; };
+		F6E0EB9C27589D9E00A65F3F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		F6EA994C274B443400F4BF4E /* HomeCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewController.swift; sourceTree = "<group>"; };
 		F6EA994E274B448F00F4BF4E /* FileCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileCollectionViewCell.swift; sourceTree = "<group>"; };
 		F6EA9954274B746D00F4BF4E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -138,7 +140,7 @@
 				F61AECED274241DA00FCB4C5 /* views */,
 				F61AECBD27422AE800FCB4C5 /* AppDelegate.swift */,
 				F61AECBF27422AE800FCB4C5 /* SceneDelegate.swift */,
-				F61AECC327422AE800FCB4C5 /* Main.storyboard */,
+				F6E0EB9C27589D9E00A65F3F /* Main.storyboard */,
 				F61AECC627422AEA00FCB4C5 /* Assets.xcassets */,
 				F61AECC827422AEA00FCB4C5 /* LaunchScreen.storyboard */,
 				F61AECCB27422AEA00FCB4C5 /* Info.plist */,
@@ -172,6 +174,7 @@
 				F6EA994C274B443400F4BF4E /* HomeCollectionViewController.swift */,
 				F6EA994E274B448F00F4BF4E /* FileCollectionViewCell.swift */,
 				F6681FDC275541ED00D0F96B /* LoginViewController.swift */,
+				F6E0EB9A2758945B00A65F3F /* PdfViewController.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -299,7 +302,7 @@
 				F61AECCA27422AEA00FCB4C5 /* LaunchScreen.storyboard in Resources */,
 				F6EA9955274B746D00F4BF4E /* GoogleService-Info.plist in Resources */,
 				F61AECC727422AEA00FCB4C5 /* Assets.xcassets in Resources */,
-				F61AECC527422AE800FCB4C5 /* Main.storyboard in Resources */,
+				F6E0EB9D27589D9E00A65F3F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,6 +372,7 @@
 				F6681FDD275541ED00D0F96B /* LoginViewController.swift in Sources */,
 				F61AECBE27422AE800FCB4C5 /* AppDelegate.swift in Sources */,
 				F61AECC027422AE800FCB4C5 /* SceneDelegate.swift in Sources */,
+				F6E0EB9B2758945B00A65F3F /* PdfViewController.swift in Sources */,
 				F6291D852743955A008F5A7F /* NoteViewController.swift in Sources */,
 				F6EA994D274B443400F4BF4E /* HomeCollectionViewController.swift in Sources */,
 				F6EA994F274B448F00F4BF4E /* FileCollectionViewCell.swift in Sources */,
@@ -409,14 +413,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		F61AECC327422AE800FCB4C5 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F61AECC427422AE800FCB4C5 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		F61AECC827422AEA00FCB4C5 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

@@ -8,86 +8,103 @@
 import UIKit
 import Firebase
 import FirebaseAuth
+import PDFKit
+import WebKit
 
-private let reuseIdentifier = "Cell"
 
 class HomeCollectionViewController: UICollectionViewController {
 
+    @IBOutlet var collView: UICollectionView!
+    
+    var docsUrl = [URL]()
+    //    let url: URL
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Register cell classes
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-
-        // Do any additional setup after loading the view.
+        
+        self.docsUrl = getDocsUrl()!
+        
     }
     
     
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-    // MARK: UICollectionViewDataSource
-
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
-
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
-        return 0
+        return docsUrl.count
     }
-
+    
+    
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-    
-        // Configure the cell
-    
+        
+        var cell = UICollectionViewCell()
+        
+        if let fileCell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as? FileCollectionViewCell {
+            
+            fileCell.configure(fileName: docsUrl[indexPath.row].lastPathComponent, image: pdfThumbnail(url: docsUrl[indexPath.row])!)
+            cell = fileCell
+        }
+        
         return cell
     }
-
-    // MARK: UICollectionViewDelegate
-
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
     
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let cell = sender as! FileCollectionViewCell
+        let indexPath = collectionView.indexPath(for: cell)!
+        let document = docsUrl[indexPath.row]
+        
+        let pdfViewController = segue.destination as! PdfViewController
+        pdfViewController.document = document
     }
-    */
+    
+//    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        displayWebView(withUrl: docsUrl[indexPath.row])
+//        
+//    }
+    
+//    func getDocsName(fileUrl: URL ) -> String{
+//        return fileUrl.lastPathComponent
+//    }
+    
+    // read the apps current document and get the url of all pdf files
+    func getDocsUrl() -> [URL]? {
+        
+        // get the directory url of the app
+        let documentsUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        
+        // get teh file names withing the url directory
+        do {
+            let directoryContent = try FileManager.default.contentsOfDirectory(at: documentsUrl, includingPropertiesForKeys: nil, options: .skipsHiddenFiles)
+            
+            
+            let items = directoryContent.filter{ $0.pathExtension == "pdf" }
+//            for item in items {
+//                print(item.lastPathComponent)
+//            }
+            
+            return items
+            
+        } catch{
+            print("Couldn't open directory.\(error)")
+        }
+        
+        return nil
+    }
+
+    
+    
+    //create a thumbnail for the pdf from a given url
+    private func pdfThumbnail(url: URL, width: CGFloat = 240) -> UIImage? {
+        guard let data = try? Data(contentsOf: url),
+              let page = PDFDocument(data: data)?.page(at: 0) else {
+                  return nil
+              }
+        let pageSize = page.bounds(for: .mediaBox)
+        let pdfScale = width / pageSize.width
+        
+        let scale = UIScreen.main.scale * pdfScale
+        let screenSize = CGSize(width: pageSize.width * scale,
+                                height: pageSize.height * scale)
+        return page.thumbnail(of: screenSize, for: .mediaBox)
+    }
+    
+  
 
 }

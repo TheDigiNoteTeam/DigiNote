@@ -34,7 +34,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="Aas-0p-NUo"/>
+                    <navigationItem key="navigationItem" title="Settings" id="Aas-0p-NUo"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r30-0i-j2x" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -84,7 +84,7 @@
                             <constraint firstItem="N2M-Pf-nfv" firstAttribute="top" secondItem="FiE-Aa-45g" secondAttribute="top" constant="117" id="vqQ-Zo-8eF"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="GxB-Na-qK9"/>
+                    <navigationItem key="navigationItem" title="Upload" id="GxB-Na-qK9"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WWK-1h-w75" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -98,38 +98,77 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="aTj-2E-wQ6">
-                            <size key="itemSize" width="128" height="128"/>
-                            <size key="headerReferenceSize" width="50" height="50"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="aTj-2E-wQ6">
+                            <size key="itemSize" width="180" height="218"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FileCollectionViewCell" id="B4Q-0e-K9G">
-                                <rect key="frame" x="0.0" y="50" width="128" height="128"/>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="B4Q-0e-K9G" customClass="FileCollectionViewCell" customModule="diginote" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="180" height="218"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="X2s-6F-rO3">
-                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="2fe-MX-jfH">
+                                    <rect key="frame" x="0.0" y="0.0" width="180" height="218"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vh2-bo-Ns0">
+                                            <rect key="frame" x="0.0" y="0.0" width="180" height="187.5"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="File Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8kH-Ww-fvq">
+                                            <rect key="frame" x="5" y="192.5" width="170" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Vh2-bo-Ns0" firstAttribute="top" secondItem="2fe-MX-jfH" secondAttribute="top" id="25l-RW-Imw"/>
+                                        <constraint firstItem="Vh2-bo-Ns0" firstAttribute="centerX" secondItem="8kH-Ww-fvq" secondAttribute="centerX" id="5cL-cV-kkA"/>
+                                        <constraint firstAttribute="bottom" secondItem="8kH-Ww-fvq" secondAttribute="bottom" constant="5" id="9Lj-lL-9Nr"/>
+                                        <constraint firstItem="Vh2-bo-Ns0" firstAttribute="leading" secondItem="2fe-MX-jfH" secondAttribute="leading" id="BO9-GY-Sa8"/>
+                                        <constraint firstItem="8kH-Ww-fvq" firstAttribute="leading" secondItem="2fe-MX-jfH" secondAttribute="leading" constant="5" id="flu-IV-Z0g"/>
+                                        <constraint firstAttribute="trailing" secondItem="8kH-Ww-fvq" secondAttribute="trailing" constant="5" id="sdm-SR-QKR"/>
+                                        <constraint firstItem="8kH-Ww-fvq" firstAttribute="top" secondItem="Vh2-bo-Ns0" secondAttribute="bottom" constant="5" id="xYU-LV-ZB6"/>
+                                    </constraints>
                                 </collectionViewCellContentView>
+                                <size key="customSize" width="180" height="218"/>
+                                <connections>
+                                    <outlet property="fileImageView" destination="Vh2-bo-Ns0" id="SbY-ju-5Si"/>
+                                    <outlet property="fileNameLabel" destination="8kH-Ww-fvq" id="yZy-3F-8lZ"/>
+                                    <segue destination="Nxu-Cv-h7M" kind="show" id="oCm-GT-WbR"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
-                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ove-fK-pA7">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
-                            <autoresizingMask key="autoresizingMask"/>
-                        </collectionReusableView>
                         <connections>
                             <outlet property="dataSource" destination="F9O-LU-M6S" id="HEl-wL-QYZ"/>
                             <outlet property="delegate" destination="F9O-LU-M6S" id="Cd5-mj-IfL"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="IiP-q6-fMC">
-                        <nil key="title"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Documents" id="IiP-q6-fMC"/>
+                    <connections>
+                        <outlet property="collectionView" destination="I3n-kV-ZLP" id="RYW-nT-uyd"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pfG-mm-VV0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2613" y="-619"/>
+            <point key="canvasLocation" x="2611.594202898551" y="-619.41964285714278"/>
+        </scene>
+        <!--Pdf View Controller-->
+        <scene sceneID="tcF-8q-nkh">
+            <objects>
+                <viewController id="Nxu-Cv-h7M" customClass="PdfViewController" customModule="diginote" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lvx-YN-oRd">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="YBI-9f-OEP"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="M7f-KM-Xkn"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Md8-7Q-WCr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3628.985507246377" y="-619.41964285714278"/>
         </scene>
         <!--LoginViewController-->
         <scene sceneID="7Fu-sw-lsV">
