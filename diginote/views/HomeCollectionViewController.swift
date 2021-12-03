@@ -12,17 +12,26 @@ import PDFKit
 import WebKit
 
 
-class HomeCollectionViewController: UICollectionViewController {
+class HomeCollectionViewController: UICollectionViewController{
 
     @IBOutlet var collView: UICollectionView!
+
     
     var docsUrl = [URL]()
+    var filteredData:[URL]!
+    
     //    let url: URL
     override func viewDidLoad() {
         super.viewDidLoad()
+    
+
         
+      
+        
+//        searchBar.delegate = self
         self.docsUrl = getDocsUrl()!
-        
+        self.filteredData  = docsUrl
+
     }
     
     
@@ -45,6 +54,10 @@ class HomeCollectionViewController: UICollectionViewController {
     }
     
     
+    
+
+    
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let cell = sender as! FileCollectionViewCell
         let indexPath = collectionView.indexPath(for: cell)!
@@ -53,6 +66,7 @@ class HomeCollectionViewController: UICollectionViewController {
         let pdfViewController = segue.destination as! PdfViewController
         pdfViewController.document = document
     }
+    
     
 //    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 //        displayWebView(withUrl: docsUrl[indexPath.row])
@@ -105,6 +119,6 @@ class HomeCollectionViewController: UICollectionViewController {
         return page.thumbnail(of: screenSize, for: .mediaBox)
     }
     
-  
 
 }
+

@@ -45,6 +45,7 @@ class NoteViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .systemBackground
 //        recognizeText(image: self.imagePicked)
 //        recognizeTextFirebase(image: self.imagePicked)
         // Do any additional setup after loading the view.
