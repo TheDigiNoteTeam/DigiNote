@@ -47,28 +47,31 @@ class SettingsViewController: UITableViewController {
         let myColor = UIColor(red: 1/255.0, green: 4/255.0, blue: 73/255.0, alpha: 1)
         
         self.models.append(Section(title: "Appearance", options: [
-            .switchCell(model: SettingsSwitchOption(title: "Dark Theme", icon: UIImage(systemName: "airplane"), iconBackgroundColor: myColor, handler: {
+            .switchCell(model: SettingsSwitchOption(title: "Dark Theme", icon: UIImage(systemName: "paintpalette"), iconBackgroundColor: myColor, handler: {
                 
-            }, isOn: true )),
-            .switchCell(model: SettingsSwitchOption(title: "Fingerprint or Facelock", icon: UIImage(systemName: "airplane"), iconBackgroundColor: myColor, handler: {
+            }, isOn: true ))
+        ]))
+        
+        self.models.append(Section(title: "Security", options: [
+            .switchCell(model: SettingsSwitchOption(title: "Fingerprint or Facelock", icon: UIImage(systemName: "lock"), iconBackgroundColor: myColor, handler: {
                 
-            }, isOn: true )),
-            .switchCell(model: SettingsSwitchOption(title: "Mobile data usage", icon: UIImage(systemName: "airplane"), iconBackgroundColor: myColor, handler: {
+            }, isOn: true ))
+        ]))
+        
+        self.models.append(Section(title: "Data", options: [
+            .switchCell(model: SettingsSwitchOption(title: "Mobile data usage", icon: UIImage(systemName: "antenna.radiowaves.left.and.right"), iconBackgroundColor: myColor, handler: {
                 
-            }, isOn: true )),
-            .staticCell(model: SettingsOption(title: "About", icon: UIImage(systemName: "house"), iconBackgroundColor: myColor) {
-            
+            }, isOn: true ))
+        ]))
+        
+        self.models.append(Section(title: "About", options: [
+            .staticCell(model: SettingsOption(title: "About", icon: UIImage(systemName: "person"), iconBackgroundColor: myColor) {
+
             })
         ]))
         
-//        self.models.append(Section(title: "Account", options: [
-//            .staticCell(model: SettingsOption(title: "Theme", icon: UIImage(systemName: "house"), iconBackgroundColor: .systemPink) {
-//
-//            })
-//            .staticCell(model: SettingsOption(title: "Theme", icon: UIImage(systemName: "house"), iconBackgroundColor: .systemPink) {
-//
-//            })
-//        ]))
+        
+
     }
     // MARK: - Table view data source
 
@@ -91,6 +94,7 @@ class SettingsViewController: UITableViewController {
                 return UITableViewCell()
             }
             cell.configure(with: model)
+             
             return cell
             
         case .switchCell(let model):
@@ -101,13 +105,6 @@ class SettingsViewController: UITableViewController {
             return cell
         }
         
-//        guard let cell = tableView.dequeueReusableCell(withIdentifier: "SettingsCell", for: indexPath) as? SettingsCell else {
-//            return UITableViewCell()
-//        }
-//
-//        cell.configure(with: model)
-//
-//        return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -123,6 +120,7 @@ class SettingsViewController: UITableViewController {
         }
         
     }
+    
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         let section = models[section]

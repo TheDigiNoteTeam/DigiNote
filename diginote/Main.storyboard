@@ -46,34 +46,51 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N2M-Pf-nfv">
-                                <rect key="frame" x="20" y="316" width="374" height="70"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.00211765326" green="0.015818308270000001" blue="0.28506793400000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Gallery" image="photo.on.rectangle.angled" catalog="system">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="openPhotoGalleryBtn:" destination="xB6-Va-yQ6" eventType="touchUpInside" id="wor-w2-6hS"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ywj-E5-y7w">
-                                <rect key="frame" x="20" y="407" width="374" height="70"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.00211765326" green="0.015818308270000001" blue="0.28506793400000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Camera" image="camera" catalog="system">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="openCameraBtn:" destination="xB6-Va-yQ6" eventType="touchUpInside" id="JIK-i9-VHS"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="qM8-1P-RQa">
+                                <rect key="frame" x="19.5" y="335" width="375" height="172"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N2M-Pf-nfv">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="81"/>
+                                        <color key="backgroundColor" red="0.00211765326" green="0.015818308270000001" blue="0.28506793400000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="81" id="9Sr-Wn-ejT"/>
+                                            <constraint firstAttribute="width" constant="375" id="M3L-bF-ksY"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="81" id="N5i-fI-xoO"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Gallery" image="photo.on.rectangle.angled" catalog="system">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="openPhotoGalleryBtn:" destination="xB6-Va-yQ6" eventType="touchUpInside" id="wor-w2-6hS"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ywj-E5-y7w">
+                                        <rect key="frame" x="0.0" y="91" width="375" height="81"/>
+                                        <color key="backgroundColor" red="0.00211765326" green="0.015818308270000001" blue="0.28506793400000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="374" id="GPW-8K-cz0"/>
+                                            <constraint firstAttribute="height" constant="81" id="Mb8-5V-Gn2"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="81" id="sod-aa-lvg"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Camera" image="camera" catalog="system">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="openCameraBtn:" destination="xB6-Va-yQ6" eventType="touchUpInside" id="JIK-i9-VHS"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="FiE-Aa-45g"/>
+                        <constraints>
+                            <constraint firstItem="qM8-1P-RQa" firstAttribute="centerX" secondItem="N7o-bW-QHQ" secondAttribute="centerX" id="C01-7h-OSW"/>
+                            <constraint firstItem="qM8-1P-RQa" firstAttribute="centerY" secondItem="N7o-bW-QHQ" secondAttribute="centerY" id="vx2-Ku-hhQ"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Upload" id="GxB-Na-qK9"/>
                 </viewController>

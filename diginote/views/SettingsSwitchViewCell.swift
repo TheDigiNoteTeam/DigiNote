@@ -33,7 +33,7 @@ class SettingsSwitchViewCell: UITableViewCell {
         return label
     }()
     
-    private let mySwitch: UISwitch = {
+   private let mySwitch: UISwitch = {
             
         let mySwitch = UISwitch()
         return mySwitch
@@ -65,6 +65,7 @@ class SettingsSwitchViewCell: UITableViewCell {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
+    
     
     override func layoutSubviews() {
         super.layoutSubviews()
