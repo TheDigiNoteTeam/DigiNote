@@ -9,6 +9,7 @@ import UIKit
 import Vision
 import Firebase
 import FirebaseFunctions
+import ProgressHUD
 
 class NoteViewController: UIViewController {
    
@@ -63,6 +64,15 @@ class NoteViewController: UIViewController {
     */
     
     func recognizeTextFirebase(image: UIImage){
+        
+        //show progress
+        ProgressHUD.colorHUD = .white
+        ProgressHUD.colorAnimation = UIColor(displayP3Red: 1/255.0, green: 4/255.0, blue: 69/255.0, alpha: 1)
+        ProgressHUD.colorStatus = .label
+        ProgressHUD.animationType = .lineScaling
+        
+        ProgressHUD.show()
+        
         guard let imageData = image.jpegData(compressionQuality: 1.0) else { return }
         let base64encodedImage = imageData.base64EncodedString()
         
@@ -70,8 +80,8 @@ class NoteViewController: UIViewController {
         
         let requestData = [
           "image": ["content": base64encodedImage],
-          "features": ["type": "DOCUMENT_TEXT_DETECTION"],
-          "imageContext": ["languageHints": ["en-t-i0-handwrit"]],
+          "features": ["type": "TEXT_DETECTION"],
+          "imageContext": ["languageHints": ["en"]],
         ]
 
         functions.httpsCallable("annotageImage").call(requestData) { result, error in
@@ -86,15 +96,24 @@ class NoteViewController: UIViewController {
                     print("Message is:\n\(message)")
                     print("Details:\n\(details)")
                     print("Error Complete:\n\(error)")
+                    ProgressHUD.showError()
                     return
                 }
             }
+            
+            ProgressHUD.showSucceed()
+            ProgressHUD.dismiss()
             print("SUCCESS")
-            guard let annotation = (result?.data as? [String: Any])?["fullTextAnnotation"] as? [String: Any] else { return }
+            guard let annotation = (result?.data as? [String: Any])?["fullTextAnnotation"] as? [String: Any] else {
+                print(result?.data)
+                return
+                
+            }
             print("%nComplete annotation:")
             let text = annotation["text"] as? String ?? ""
             print("%n\(text)")
         }
+        
     }
     
     func recognizeText(image: UIImage?){

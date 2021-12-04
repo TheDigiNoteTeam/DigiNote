@@ -8,36 +8,58 @@
 import UIKit
 import Firebase
 import FirebaseAuth
-import FirebaseCore 
+import FirebaseCore
+import TransitionButton
 
 class LoginViewController: UIViewController {
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
+    @IBOutlet weak var signInButton: TransitionButton!
+    @IBOutlet weak var signUpButton: TransitionButton!
     
     
     @IBAction func onSignIn(_ sender: Any) {
         let userEmail = emailField.text!
         let userPassword = passwordField.text!
         
+        signInButton.startAnimation()
+        
         Auth.auth().signIn(withEmail: userEmail, password: userPassword) { [weak self] authResult, error in
             guard let strongSelf = self else { return }
             
             if error != nil {
+                self!.signInButton.stopAnimation(animationStyle: .shake, revertAfterDelay: 1) {
+                }
+        
                 print("Couldn't sign up: \(error?.localizedDescription)")
+                
             } else {
+                self!.signInButton.stopAnimation(animationStyle: .expand, revertAfterDelay: 1) {
+                    
+                }
                 self!.performSegue(withIdentifier: "loginSegue", sender: nil)
+                
             }
         }
+        
     }
     
     @IBAction func onSignUp(_ sender: Any) {
         let userEmail = emailField.text!
         let userPassword = passwordField.text!
         
+        signUpButton.startAnimation()
         Auth.auth().createUser(withEmail: userEmail, password: userPassword) { authResult, error in
             if error != nil {
+                self.signUpButton.stopAnimation(animationStyle: .shake, revertAfterDelay: 1) {
+                    
+                }
+
                 print("Couldn't sign up: \(error?.localizedDescription)")
             } else {
+                self.signUpButton.stopAnimation(animationStyle: .expand, revertAfterDelay: 1) {
+                    
+                }
                 self.performSegue(withIdentifier: "loginSegue", sender: nil)
             }
         }
@@ -45,6 +67,7 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+  
 
         // Do any additional setup after loading the view.
     }

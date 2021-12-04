@@ -9,4 +9,6 @@ target 'diginote' do
   pod 'Firebase/Core'
   pod 'Firebase/Functions'
   pod 'Firebase/Auth'
+  pod 'TransitionButton' # for login screen
+  pod 'ProgressHUD'
 end

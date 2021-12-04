@@ -23,13 +23,15 @@ class HomeCollectionViewController: UICollectionViewController, UISearchBarDeleg
     //    let url: URL
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
+        view.backgroundColor = .systemBackground
         self.documentListUrl = getDocsUrl()!
         self.documentListUrlCopy  = documentListUrl
 
     }
     
-    
+
+
     
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

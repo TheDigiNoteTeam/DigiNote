@@ -172,11 +172,11 @@
                             <size key="itemSize" width="180" height="218"/>
                             <size key="headerReferenceSize" width="50" height="50"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="10" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="B4Q-0e-K9G" customClass="FileCollectionViewCell" customModule="diginote" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="50" width="180" height="218"/>
+                                <rect key="frame" x="0.0" y="60" width="180" height="218"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="2fe-MX-jfH">
                                     <rect key="frame" x="0.0" y="0.0" width="180" height="218"/>
@@ -317,20 +317,26 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="awg-3b-7Vy">
                                         <rect key="frame" x="0.0" y="179.5" width="260" height="31"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6nT-AY-Oce">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6nT-AY-Oce" customClass="TransitionButton" customModule="TransitionButton">
                                                 <rect key="frame" x="0.0" y="0.0" width="128.5" height="31"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="31" id="scy-Tm-UyU"/>
                                                 </constraints>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="filled" title="Sign In">
-                                                    <color key="baseBackgroundColor" red="0.004746051589546418" green="0.016734196657362355" blue="0.27006099200007894" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="baseBackgroundColor" red="0.00211765326" green="0.015818308270000001" blue="0.28506793400000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </buttonConfiguration>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="spinnerColor">
+                                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="onSignIn:" destination="8vI-mc-KUQ" eventType="touchUpInside" id="cvj-WY-SIO"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hB8-5Q-STG">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hB8-5Q-STG" customClass="TransitionButton" customModule="TransitionButton">
                                                 <rect key="frame" x="131.5" y="0.0" width="128.5" height="31"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="31" id="cYt-eF-cVb"/>
@@ -358,6 +364,8 @@
                     <connections>
                         <outlet property="emailField" destination="U38-sO-rVi" id="2qO-gb-fQe"/>
                         <outlet property="passwordField" destination="74g-x7-KBs" id="OlS-wK-Zpc"/>
+                        <outlet property="signInButton" destination="6nT-AY-Oce" id="58s-93-4el"/>
+                        <outlet property="signUpButton" destination="hB8-5Q-STG" id="gNZ-zy-2XD"/>
                         <segue destination="MEZ-9u-qK9" kind="presentation" identifier="loginSegue" id="COA-jm-qB8"/>
                     </connections>
                 </viewController>
@@ -463,6 +471,14 @@
             <point key="canvasLocation" x="1704" y="923"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="6nT-AY-Oce">
+            <size key="intrinsicContentSize" width="68" height="31"/>
+        </designable>
+        <designable name="hB8-5Q-STG">
+            <size key="intrinsicContentSize" width="75" height="31"/>
+        </designable>
+    </designables>
     <resources>
         <image name="LoginIcon 1024x1024 px" width="260" height="66.5"/>
         <image name="camera" catalog="system" width="128" height="94"/>
