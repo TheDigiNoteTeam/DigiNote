@@ -17,6 +17,7 @@
 		F61AECE127422AEB00FCB4C5 /* diginoteUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61AECE027422AEB00FCB4C5 /* diginoteUITestsLaunchTests.swift */; };
 		F6291D852743955A008F5A7F /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6291D842743955A008F5A7F /* NoteViewController.swift */; };
 		F652E1FE275B227C00F7F867 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F652E1FD275B227C00F7F867 /* SettingsViewController.swift */; };
+		F652E202275B65C400F7F867 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F652E201275B65C400F7F867 /* SearchBarView.swift */; };
 		F6681FDD275541ED00D0F96B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6681FDC275541ED00D0F96B /* LoginViewController.swift */; };
 		F6E0EB9B2758945B00A65F3F /* PdfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E0EB9A2758945B00A65F3F /* PdfViewController.swift */; };
 		F6E0EB9D27589D9E00A65F3F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6E0EB9C27589D9E00A65F3F /* Main.storyboard */; };
@@ -59,6 +60,7 @@
 		F61AECE027422AEB00FCB4C5 /* diginoteUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = diginoteUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		F6291D842743955A008F5A7F /* NoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
 		F652E1FD275B227C00F7F867 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		F652E201275B65C400F7F867 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		F6681FDC275541ED00D0F96B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F6E0EB9A2758945B00A65F3F /* PdfViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PdfViewController.swift; sourceTree = "<group>"; };
 		F6E0EB9C27589D9E00A65F3F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 				F6681FDC275541ED00D0F96B /* LoginViewController.swift */,
 				F6E0EB9A2758945B00A65F3F /* PdfViewController.swift */,
 				F652E1FD275B227C00F7F867 /* SettingsViewController.swift */,
+				F652E201275B65C400F7F867 /* SearchBarView.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -370,6 +373,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F6681FDD275541ED00D0F96B /* LoginViewController.swift in Sources */,
+				F652E202275B65C400F7F867 /* SearchBarView.swift in Sources */,
 				F61AECBE27422AE800FCB4C5 /* AppDelegate.swift in Sources */,
 				F652E1FE275B227C00F7F867 /* SettingsViewController.swift in Sources */,
 				F61AECC027422AE800FCB4C5 /* SceneDelegate.swift in Sources */,

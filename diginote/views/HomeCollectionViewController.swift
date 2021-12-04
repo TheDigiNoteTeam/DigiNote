@@ -12,20 +12,20 @@ import PDFKit
 import WebKit
 
 
-class HomeCollectionViewController: UICollectionViewController{
+class HomeCollectionViewController: UICollectionViewController, UISearchBarDelegate{
 
     @IBOutlet var collView: UICollectionView!
 
     
-    var docsUrl = [URL]()
-    var filteredData:[URL]!
+    var documentListUrl = [URL]()
+    var documentListUrlCopy:[URL]!
     
     //    let url: URL
     override func viewDidLoad() {
         super.viewDidLoad()
     
-        self.docsUrl = getDocsUrl()!
-        self.filteredData  = docsUrl
+        self.documentListUrl = getDocsUrl()!
+        self.documentListUrlCopy  = documentListUrl
 
     }
     
@@ -33,7 +33,7 @@ class HomeCollectionViewController: UICollectionViewController{
     
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return docsUrl.count
+        return documentListUrl.count
     }
     
     
@@ -43,22 +43,49 @@ class HomeCollectionViewController: UICollectionViewController{
         
         if let fileCell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as? FileCollectionViewCell {
             
-            fileCell.configure(fileName: docsUrl[indexPath.row].lastPathComponent, image: pdfThumbnail(url: docsUrl[indexPath.row])!)
+            fileCell.configure(fileName: documentListUrl[indexPath.row].lastPathComponent, image: pdfThumbnail(url: documentListUrl[indexPath.row])!)
             cell = fileCell
         }
         
         return cell
     }
     
+    //add a search bar to the collection view
+    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let searchView: UICollectionReusableView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader,
+                                                                                                   withReuseIdentifier: "SearchBar", for: indexPath)
+        
+        return searchView
+    }
     
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        self.documentListUrl.removeAll()
+        
+        for item in self.documentListUrlCopy {
+            if item.lastPathComponent.lowercased().contains(searchBar.text!.lowercased()){
+                self.documentListUrl.append(item)
+            }
+        }
+        
+        if(searchBar.text!.isEmpty){
+            self.documentListUrl = self.documentListUrlCopy
+        }
+        
+        self.collectionView.reloadData()
+    }
     
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        self.documentListUrl = self.documentListUrlCopy
+        searchBar.resignFirstResponder()
+        self.collectionView.reloadData()
+    }
 
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let cell = sender as! FileCollectionViewCell
         let indexPath = collectionView.indexPath(for: cell)!
-        let document = docsUrl[indexPath.row]
+        let document = documentListUrl[indexPath.row]
         
         let pdfViewController = segue.destination as! PdfViewController
         pdfViewController.document = document
