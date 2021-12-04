@@ -24,15 +24,12 @@ class HomeCollectionViewController: UICollectionViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
     
-
-        
-      
-        
-//        searchBar.delegate = self
         self.docsUrl = getDocsUrl()!
         self.filteredData  = docsUrl
 
     }
+    
+    
     
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

@@ -49,7 +49,21 @@ class LoginViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let darkModeEnabled = UserDefaults.standard.bool(forKey: "darkModeEnabled")
+        
+        if #available(iOS 13.0, *){
+            if darkModeEnabled {
+                UIApplication.shared.windows.first?.overrideUserInterfaceStyle = .dark
+            }else {
+                UIApplication.shared.windows.first?.overrideUserInterfaceStyle  = .light
+            }
+        }
+        
+       
+    }
     /*
     // MARK: - Navigation
 
