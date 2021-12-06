@@ -101,6 +101,7 @@ PODS:
   - nanopb/encode (2.30908.0)
   - ProgressHUD (13.6)
   - PromisesObjC (2.0.0)
+  - Resolver (1.5.0)
   - TransitionButton (0.5.3)
 
 DEPENDENCIES:
@@ -108,6 +109,7 @@ DEPENDENCIES:
   - Firebase/Core
   - Firebase/Functions
   - ProgressHUD
+  - Resolver
   - TransitionButton
 
 SPEC REPOS:
@@ -126,6 +128,7 @@ SPEC REPOS:
     - nanopb
     - ProgressHUD
     - PromisesObjC
+    - Resolver
     - TransitionButton
 
 SPEC CHECKSUMS:
@@ -143,8 +146,9 @@ SPEC CHECKSUMS:
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   ProgressHUD: 4bdaa0d2ddf676b23324b199f9facffb5c3a1620
   PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
+  Resolver: 68984624572763018fd8ec7b8e3e8df0e3b6bba5
   TransitionButton: 36283346e17c64775a1b3bc3a7a72940a367de1f
 
-PODFILE CHECKSUM: 144dc09b7b5f6ad63060254252ef534899446bfa
+PODFILE CHECKSUM: 5ba55a98a8164ddeab4eff63f664eb57db5b6672
 
 COCOAPODS: 1.11.2

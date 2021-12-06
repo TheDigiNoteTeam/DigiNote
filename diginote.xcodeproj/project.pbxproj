@@ -18,6 +18,8 @@
 		F6291D852743955A008F5A7F /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6291D842743955A008F5A7F /* NoteViewController.swift */; };
 		F652E1FE275B227C00F7F867 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F652E1FD275B227C00F7F867 /* SettingsViewController.swift */; };
 		F652E202275B65C400F7F867 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F652E201275B65C400F7F867 /* SearchBarView.swift */; };
+		F652E204275C8CBE00F7F867 /* ImageAnnotator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F652E203275C8CBE00F7F867 /* ImageAnnotator.swift */; };
+		F652E206275C90BD00F7F867 /* ImageRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F652E205275C90BD00F7F867 /* ImageRecognizer.swift */; };
 		F6681FDD275541ED00D0F96B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6681FDC275541ED00D0F96B /* LoginViewController.swift */; };
 		F6E0EB9B2758945B00A65F3F /* PdfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E0EB9A2758945B00A65F3F /* PdfViewController.swift */; };
 		F6E0EB9D27589D9E00A65F3F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6E0EB9C27589D9E00A65F3F /* Main.storyboard */; };
@@ -61,6 +63,8 @@
 		F6291D842743955A008F5A7F /* NoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
 		F652E1FD275B227C00F7F867 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		F652E201275B65C400F7F867 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
+		F652E203275C8CBE00F7F867 /* ImageAnnotator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAnnotator.swift; sourceTree = "<group>"; };
+		F652E205275C90BD00F7F867 /* ImageRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRecognizer.swift; sourceTree = "<group>"; };
 		F6681FDC275541ED00D0F96B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F6E0EB9A2758945B00A65F3F /* PdfViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PdfViewController.swift; sourceTree = "<group>"; };
 		F6E0EB9C27589D9E00A65F3F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -192,6 +196,8 @@
 		F69104A42743777400621BA8 /* models */ = {
 			isa = PBXGroup;
 			children = (
+				F652E203275C8CBE00F7F867 /* ImageAnnotator.swift */,
+				F652E205275C90BD00F7F867 /* ImageRecognizer.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -372,11 +378,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F652E204275C8CBE00F7F867 /* ImageAnnotator.swift in Sources */,
 				F6681FDD275541ED00D0F96B /* LoginViewController.swift in Sources */,
 				F652E202275B65C400F7F867 /* SearchBarView.swift in Sources */,
 				F61AECBE27422AE800FCB4C5 /* AppDelegate.swift in Sources */,
 				F652E1FE275B227C00F7F867 /* SettingsViewController.swift in Sources */,
 				F61AECC027422AE800FCB4C5 /* SceneDelegate.swift in Sources */,
+				F652E206275C90BD00F7F867 /* ImageRecognizer.swift in Sources */,
 				F6E0EB9B2758945B00A65F3F /* PdfViewController.swift in Sources */,
 				F6291D852743955A008F5A7F /* NoteViewController.swift in Sources */,
 				F6EA994D274B443400F4BF4E /* HomeCollectionViewController.swift in Sources */,

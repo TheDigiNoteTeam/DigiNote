@@ -10,11 +10,21 @@ import Vision
 import Firebase
 import FirebaseFunctions
 import ProgressHUD
+import SwiftUI
+
+
+struct RequestData: Codable{
+    var image: [String:String]
+    var features: [[String: String]]
+    var imageContext: [String:[String]]
+}
 
 class NoteViewController: UIViewController {
+
    
     var text: String!
     var imagePicked: UIImage!
+    var imagePickedUrl: URL!
     
     @IBAction func openPhotoGalleryBtn(_ sender: Any) {
         
@@ -47,71 +57,78 @@ class NoteViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-//        recognizeText(image: self.imagePicked)
-//        recognizeTextFirebase(image: self.imagePicked)
-        // Do any additional setup after loading the view.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
-    func recognizeTextFirebase(image: UIImage){
-        
-        //show progress
         ProgressHUD.colorHUD = .white
         ProgressHUD.colorAnimation = UIColor(displayP3Red: 1/255.0, green: 4/255.0, blue: 69/255.0, alpha: 1)
         ProgressHUD.colorStatus = .label
         ProgressHUD.animationType = .lineScaling
-        
-        ProgressHUD.show()
-        
-        guard let imageData = image.jpegData(compressionQuality: 1.0) else { return }
-        let base64encodedImage = imageData.base64EncodedString()
-        
-        lazy var functions = Functions.functions()
-        
-        let requestData = [
-          "image": ["content": base64encodedImage],
-          "features": ["type": "TEXT_DETECTION"],
-          "imageContext": ["languageHints": ["en"]],
-        ]
 
-        functions.httpsCallable("annotageImage").call(requestData) { result, error in
-            if let error = error as NSError? {
-                if error.domain == FunctionsErrorDomain{
-                    let code = FunctionsErrorCode(rawValue: error.code)
-                    let message = error.localizedDescription
-                    let details = error.userInfo[FunctionsErrorDetailsKey]
-//                    print(code,message,details!!!!)
-//                    print(error)
-                    print("Code is\n:\(code)")
-                    print("Message is:\n\(message)")
-                    print("Details:\n\(details)")
-                    print("Error Complete:\n\(error)")
-                    ProgressHUD.showError()
-                    return
-                }
+    }
+    
+    
+//    func recognizeTextFirebase(){
+//        print("Initialized text extraction ...")
+//        ImageRecognizer.init(imageUrl: self.imagePickedUrl).recognize()
+//        print("Text extraction finished.")
+//    }
+
+
+    func recognizeTextFirebase(){
+
+        ProgressHUD.show()
+
+        
+        guard let imageData = self.imagePicked.jpegData(compressionQuality: 1.0) else { return }
+
+  
+        let base64encodedImage = imageData.base64EncodedString()
+
+        lazy var functions = Functions.functions()
+
+        let requestData = RequestData(image: ["content": base64encodedImage],
+                                      features: [["type": "TEXT_DETECTION"]],
+                                      imageContext: ["languageHints":["en"]]
+                                    )
+        
+        let encoder = JSONEncoder()
+
+        let encodedData = try! encoder.encode(requestData)
+        let string = String(data: encodedData, encoding: .utf8)!
+        functions.httpsCallable("annotateImage").call(string) { (result, error) in
+          if let error = error as NSError? {
+            if error.domain == FunctionsErrorDomain {
+              let code = FunctionsErrorCode(rawValue: error.code)
+              let message = error.localizedDescription
+              let details = error.userInfo[FunctionsErrorDetailsKey]
+              print("ERROR \(String(describing: message)), CODE \(String(describing: code)), DETAILS \(String(describing: details))")
             }
-            
-            ProgressHUD.showSucceed()
+            return
+          }
             ProgressHUD.dismiss()
-            print("SUCCESS")
-            guard let annotation = (result?.data as? [String: Any])?["fullTextAnnotation"] as? [String: Any] else {
-                print(result?.data)
+          print("Success.")
+            DispatchQueue.main.async {
+              /* Parse result object */
+              guard let nsarray = result?.data as? NSArray
+              else {
                 return
-                
+              }
+              
+              guard let nsdictionary = nsarray[0] as? NSDictionary
+              else {
+                return
+              }
+
+              guard let fullTextAnnotation = nsdictionary["fullTextAnnotation"] as? [String: Any]
+              else {
+                return
+              }
+              
+              let text = fullTextAnnotation["text"] as? String ?? ""
+              print("Recognized text: \(text)")
             }
-            print("%nComplete annotation:")
-            let text = annotation["text"] as? String ?? ""
-            print("%n\(text)")
+        
+
+
+
         }
         
     }
@@ -168,9 +185,13 @@ extension NoteViewController: UIImagePickerControllerDelegate,
           guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else{
               return
           }
-           
+          guard let imageUrl = info[UIImagePickerController.InfoKey.imageURL] as? URL else {
+              return
+          }
+          
           self.imagePicked = image
-          recognizeTextFirebase(image: image)
+          self.imagePickedUrl = imageUrl
+          recognizeTextFirebase()
 //
 //          recognizeText(image: image)
       }
