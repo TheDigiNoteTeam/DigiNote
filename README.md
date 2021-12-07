@@ -136,3 +136,19 @@ This week had a setback and had to revise our app. The original intent was to us
 
 ##### GIF
 <img src="https://i.imgur.com/HuVB4bo.gif" width=600>
+
+#### Unit 12 Submission
+All major issues of the app has been solved. The app MVP is almost ready.
+
+#### Completed User Stories
+[x] The shows a list of currently saved PDFs.
+
+[x] Users can search in the list of PDFs.
+
+[x] User can enable/disable dark theme from settings menu.
+
+[x] The app can send images and receive extracted text from Cloud Vision. It's currently printed on the console and will be integrated within the next week.
+
+##### GIF!
+
+<img src="https://i.imgur.com/lYNUBXz.gif" width=600>
