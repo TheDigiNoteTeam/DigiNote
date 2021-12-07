@@ -12,5 +12,5 @@ target 'diginote' do
   pod 'TransitionButton' # for login screen
   pod 'ProgressHUD'
   pod 'Resolver'
-
+  pod 'TPPDF'
 end

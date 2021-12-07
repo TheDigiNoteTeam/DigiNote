@@ -18,14 +18,14 @@
 		F6291D852743955A008F5A7F /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6291D842743955A008F5A7F /* NoteViewController.swift */; };
 		F652E1FE275B227C00F7F867 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F652E1FD275B227C00F7F867 /* SettingsViewController.swift */; };
 		F652E202275B65C400F7F867 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F652E201275B65C400F7F867 /* SearchBarView.swift */; };
-		F652E204275C8CBE00F7F867 /* ImageAnnotator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F652E203275C8CBE00F7F867 /* ImageAnnotator.swift */; };
 		F6681FDD275541ED00D0F96B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6681FDC275541ED00D0F96B /* LoginViewController.swift */; };
 		F6E0EB9B2758945B00A65F3F /* PdfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E0EB9A2758945B00A65F3F /* PdfViewController.swift */; };
 		F6E0EB9D27589D9E00A65F3F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6E0EB9C27589D9E00A65F3F /* Main.storyboard */; };
 		F6EA994D274B443400F4BF4E /* HomeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6EA994C274B443400F4BF4E /* HomeCollectionViewController.swift */; };
 		F6EA994F274B448F00F4BF4E /* FileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6EA994E274B448F00F4BF4E /* FileCollectionViewCell.swift */; };
 		F6EA9955274B746D00F4BF4E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F6EA9954274B746D00F4BF4E /* GoogleService-Info.plist */; };
-		F6F604EB275F2D1300AD4A90 /* ImageAnnotatorAsync.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F604EA275F2D1300AD4A90 /* ImageAnnotatorAsync.swift */; };
+		F6F604EB275F2D1300AD4A90 /* ImageAnnotator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F604EA275F2D1300AD4A90 /* ImageAnnotator.swift */; };
+		F6F604ED275F478A00AD4A90 /* CreatePDF.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F604EC275F478A00AD4A90 /* CreatePDF.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,14 +63,14 @@
 		F6291D842743955A008F5A7F /* NoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
 		F652E1FD275B227C00F7F867 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		F652E201275B65C400F7F867 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
-		F652E203275C8CBE00F7F867 /* ImageAnnotator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAnnotator.swift; sourceTree = "<group>"; };
 		F6681FDC275541ED00D0F96B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F6E0EB9A2758945B00A65F3F /* PdfViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PdfViewController.swift; sourceTree = "<group>"; };
 		F6E0EB9C27589D9E00A65F3F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		F6EA994C274B443400F4BF4E /* HomeCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewController.swift; sourceTree = "<group>"; };
 		F6EA994E274B448F00F4BF4E /* FileCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileCollectionViewCell.swift; sourceTree = "<group>"; };
 		F6EA9954274B746D00F4BF4E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		F6F604EA275F2D1300AD4A90 /* ImageAnnotatorAsync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAnnotatorAsync.swift; sourceTree = "<group>"; };
+		F6F604EA275F2D1300AD4A90 /* ImageAnnotator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAnnotator.swift; sourceTree = "<group>"; };
+		F6F604EC275F478A00AD4A90 /* CreatePDF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePDF.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,8 +196,8 @@
 		F69104A42743777400621BA8 /* models */ = {
 			isa = PBXGroup;
 			children = (
-				F652E203275C8CBE00F7F867 /* ImageAnnotator.swift */,
-				F6F604EA275F2D1300AD4A90 /* ImageAnnotatorAsync.swift */,
+				F6F604EA275F2D1300AD4A90 /* ImageAnnotator.swift */,
+				F6F604EC275F478A00AD4A90 /* CreatePDF.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -378,14 +378,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F652E204275C8CBE00F7F867 /* ImageAnnotator.swift in Sources */,
 				F6681FDD275541ED00D0F96B /* LoginViewController.swift in Sources */,
 				F652E202275B65C400F7F867 /* SearchBarView.swift in Sources */,
 				F61AECBE27422AE800FCB4C5 /* AppDelegate.swift in Sources */,
 				F652E1FE275B227C00F7F867 /* SettingsViewController.swift in Sources */,
+				F6F604ED275F478A00AD4A90 /* CreatePDF.swift in Sources */,
 				F61AECC027422AE800FCB4C5 /* SceneDelegate.swift in Sources */,
 				F6E0EB9B2758945B00A65F3F /* PdfViewController.swift in Sources */,
-				F6F604EB275F2D1300AD4A90 /* ImageAnnotatorAsync.swift in Sources */,
+				F6F604EB275F2D1300AD4A90 /* ImageAnnotator.swift in Sources */,
 				F6291D852743955A008F5A7F /* NoteViewController.swift in Sources */,
 				F6EA994D274B443400F4BF4E /* HomeCollectionViewController.swift in Sources */,
 				F6EA994F274B448F00F4BF4E /* FileCollectionViewCell.swift in Sources */,

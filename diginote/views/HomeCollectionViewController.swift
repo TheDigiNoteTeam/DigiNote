@@ -108,7 +108,7 @@ class HomeCollectionViewController: UICollectionViewController, UISearchBarDeleg
         
         // get the directory url of the app
         let documentsUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-        
+
         // get teh file names withing the url directory
         do {
             let directoryContent = try FileManager.default.contentsOfDirectory(at: documentsUrl, includingPropertiesForKeys: nil, options: .skipsHiddenFiles)
