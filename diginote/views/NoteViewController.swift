@@ -13,18 +13,17 @@ import ProgressHUD
 import SwiftUI
 
 
-struct RequestData: Codable{
-    var image: [String:String]
-    var features: [[String: String]]
-    var imageContext: [String:[String]]
-}
+//struct RequestData: Codable{
+//    var image: [String:String]
+//    var features: [[String: String]]
+//    var imageContext: [String:[String]]
+//}
 
 class NoteViewController: UIViewController {
 
    
     var text: String!
     var imagePicked: UIImage!
-    var imagePickedUrl: URL!
     
     @IBAction func openPhotoGalleryBtn(_ sender: Any) {
         
@@ -65,112 +64,8 @@ class NoteViewController: UIViewController {
     }
     
     
-//    func recognizeTextFirebase(){
-//        print("Initialized text extraction ...")
-//        ImageRecognizer.init(imageUrl: self.imagePickedUrl).recognize()
-//        print("Text extraction finished.")
-//    }
 
-
-    func recognizeTextFirebase(){
-
-        ProgressHUD.show()
-
-        
-        guard let imageData = self.imagePicked.jpegData(compressionQuality: 1.0) else { return }
-
-  
-        let base64encodedImage = imageData.base64EncodedString()
-
-        lazy var functions = Functions.functions()
-
-        let requestData = RequestData(image: ["content": base64encodedImage],
-                                      features: [["type": "TEXT_DETECTION"]],
-                                      imageContext: ["languageHints":["en"]]
-                                    )
-        
-        let encoder = JSONEncoder()
-
-        let encodedData = try! encoder.encode(requestData)
-        let string = String(data: encodedData, encoding: .utf8)!
-        functions.httpsCallable("annotateImage").call(string) { (result, error) in
-          if let error = error as NSError? {
-            if error.domain == FunctionsErrorDomain {
-              let code = FunctionsErrorCode(rawValue: error.code)
-              let message = error.localizedDescription
-              let details = error.userInfo[FunctionsErrorDetailsKey]
-              print("ERROR \(String(describing: message)), CODE \(String(describing: code)), DETAILS \(String(describing: details))")
-            }
-            return
-          }
-            ProgressHUD.dismiss()
-          print("Success.")
-            DispatchQueue.main.async {
-              /* Parse result object */
-              guard let nsarray = result?.data as? NSArray
-              else {
-                return
-              }
-              
-              guard let nsdictionary = nsarray[0] as? NSDictionary
-              else {
-                return
-              }
-
-              guard let fullTextAnnotation = nsdictionary["fullTextAnnotation"] as? [String: Any]
-              else {
-                return
-              }
-              
-              let text = fullTextAnnotation["text"] as? String ?? ""
-              print("Recognized text: \(text)")
-            }
-        
-
-
-
-        }
-        
-    }
     
-    func recognizeText(image: UIImage?){
-        guard let cgImage = image?.cgImage else {
-            fatalError("Could not get CG Image")
-        }
-        
-        // handler
-        let handler = VNImageRequestHandler(cgImage: cgImage, options: [:])
-        
-        // Request
-        let request = VNRecognizeTextRequest { request, error in
-            guard let observations = request.results as? [VNRecognizedTextObservation],
-                  error == nil else {
-                      return
-                  }
-            
-            let text = observations.compactMap({
-                $0.topCandidates(1).first?.string
-            }).joined(separator: ", ")
-            
-            
-            
-            DispatchQueue.main.async {
-//                self.text = text
-                print(text)
-                print("done here")
-            }
-            
-            
-        }
-        
-        //process
-        do {
-            try handler.perform([request])
-        }
-        catch {
-            print(error	)
-        }
-    }
 }
 
 extension NoteViewController: UIImagePickerControllerDelegate,
@@ -180,19 +75,41 @@ extension NoteViewController: UIImagePickerControllerDelegate,
           picker.dismiss(animated: true, completion: nil)
       }
       
-      func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
           picker.dismiss(animated: true, completion: nil)
           guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else{
               return
           }
-          guard let imageUrl = info[UIImagePickerController.InfoKey.imageURL] as? URL else {
-              return
-          }
           
           self.imagePicked = image
-          self.imagePickedUrl = imageUrl
-          recognizeTextFirebase()
-//
-//          recognizeText(image: image)
+
+        //show the waiting animation
+        ProgressHUD.show("Extracting Text...")
+
+        //
+        Task.init{
+            
+            do {
+                self.text = try await ImageAnnotatorAsync().annotateImage(image: self.imagePicked)
+//                let okDialogMessage = UIAlertController(title: "Success", message: self.text!, preferredStyle: .alert)
+//                self.present(okDialogMessage, animated: true , completion: nil)
+                
+            }catch let error as NSError {
+                
+                let errorDialogMessage = UIAlertController(title: "Error", message: "Could not extract data.", preferredStyle: .alert)
+                self.present(errorDialogMessage, animated: true, completion: nil)
+                
+                if error.domain == FunctionsErrorDomain {
+                    let code = FunctionsErrorCode(rawValue: error.code)
+                    let message = error.localizedDescription
+                    let details = error.userInfo[FunctionsErrorDetailsKey]
+                    print("ERROR \(String(describing: message)), CODE \(String(describing: code)), DETAILS \(String(describing: details))")
+                    
+                }
+            }
+            
+            ProgressHUD.dismiss()
+        }
+
       }
 }
