@@ -10,29 +10,49 @@ import Firebase
 import FirebaseAuth
 import PDFKit
 import WebKit
+import CRRefresh
 
 
 class HomeCollectionViewController: UICollectionViewController, UISearchBarDelegate{
 
-    @IBOutlet var collView: UICollectionView!
 
-    
+    // two variables to store data. One is
+    // used to retain original data, when the user
+    // searches
     var documentListUrl = [URL]()
     var documentListUrlCopy:[URL]!
+    
+
+
     
     //    let url: URL
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = .systemBackground
-        self.documentListUrl = getDocsUrl()!
-        self.documentListUrlCopy  = documentListUrl
+        self.fetchFileData()
 
+        
+        // use CRRefresh pod to add a pull-to-refresh
+        // functionality
+        collectionView.cr.addHeadRefresh(animator: FastAnimator()) {
+            self.fetchFileData()
+            self.collectionView.reloadData()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                self.collectionView.cr.endHeaderRefresh()
+            }
+        }
+        collectionView.cr.beginHeaderRefresh()
     }
     
 
-
-    
+    // get pdf file urls from apps document folder
+    private func fetchFileData(){
+//        self.documentListUrl.removeAll()
+//        self.documentListUrlCopy.removeAll()
+        self.documentListUrl = getDocsUrl()!
+        self.documentListUrlCopy  = documentListUrl
+    }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return documentListUrl.count
@@ -43,6 +63,7 @@ class HomeCollectionViewController: UICollectionViewController, UISearchBarDeleg
         
         var cell = UICollectionViewCell()
         
+        // set the custom cell
         if let fileCell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as? FileCollectionViewCell {
             
             fileCell.configure(fileName: documentListUrl[indexPath.row].lastPathComponent, image: pdfThumbnail(url: documentListUrl[indexPath.row])!)
@@ -83,7 +104,7 @@ class HomeCollectionViewController: UICollectionViewController, UISearchBarDeleg
     }
 
     
-    
+    // when a cell is clicked, open the underlying pdf in a new view
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let cell = sender as! FileCollectionViewCell
         let indexPath = collectionView.indexPath(for: cell)!
@@ -94,14 +115,6 @@ class HomeCollectionViewController: UICollectionViewController, UISearchBarDeleg
     }
     
     
-//    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        displayWebView(withUrl: docsUrl[indexPath.row])
-//        
-//    }
-    
-//    func getDocsName(fileUrl: URL ) -> String{
-//        return fileUrl.lastPathComponent
-//    }
     
     // read the apps current document and get the url of all pdf files
     func getDocsUrl() -> [URL]? {
@@ -118,8 +131,10 @@ class HomeCollectionViewController: UICollectionViewController, UISearchBarDeleg
 //            for item in items {
 //                print(item.lastPathComponent)
 //            }
+            // sort the files by their name and return
+            let sortedItems = items.sorted(by: { $0.lastPathComponent < $1.lastPathComponent})
             
-            return items
+            return sortedItems
             
         } catch{
             print("Couldn't open directory.\(error)")

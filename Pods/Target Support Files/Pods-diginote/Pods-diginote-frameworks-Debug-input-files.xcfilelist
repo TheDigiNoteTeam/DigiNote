@@ -1,4 +1,5 @@
 ${PODS_ROOT}/Target Support Files/Pods-diginote/Pods-diginote-frameworks.sh
+${BUILT_PRODUCTS_DIR}/CRRefresh/CRRefresh.framework
 ${BUILT_PRODUCTS_DIR}/FirebaseAuth/FirebaseAuth.framework
 ${BUILT_PRODUCTS_DIR}/FirebaseCore/FirebaseCore.framework
 ${BUILT_PRODUCTS_DIR}/FirebaseCoreDiagnostics/FirebaseCoreDiagnostics.framework

@@ -394,7 +394,7 @@
         <!--Home-->
         <scene sceneID="pa3-2Q-j88">
             <objects>
-                <navigationController title="Home" automaticallyAdjustsScrollViewInsets="NO" id="MMf-KA-Uhr" sceneMemberID="viewController">
+                <navigationController title="Home" wantsFullScreenLayout="YES" automaticallyAdjustsScrollViewInsets="NO" id="MMf-KA-Uhr" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="folder" catalog="system" id="jef-IC-D3N"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="q0U-6z-6FC">
@@ -449,7 +449,7 @@
         <scene sceneID="zed-aa-zFU">
             <objects>
                 <navigationController title="Settings" automaticallyAdjustsScrollViewInsets="NO" id="G1O-gQ-cTz" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" image="wrench.and.screwdriver" catalog="system" selectedImage="wrench.and.screwdriver" id="mbG-c3-fKt"/>
+                    <tabBarItem key="tabBarItem" title="" image="wrench.and.screwdriver" catalog="system" selectedImage="wrench.and.screwdriver" id="mbG-c3-fKt"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="471-wI-PG0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="108"/>

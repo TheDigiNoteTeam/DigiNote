@@ -10,7 +10,8 @@ target 'diginote' do
   pod 'Firebase/Functions'
   pod 'Firebase/Auth'
   pod 'TransitionButton' # for login screen
-  pod 'ProgressHUD'
-  pod 'Resolver'
-  pod 'TPPDF'
+  pod 'ProgressHUD' # for creating wait animation
+  pod 'Resolver' # didn't use it
+  pod 'TPPDF' # for creating PDF
+  pod 'CRRefresh' # for pull to refresh on collection view
 end
