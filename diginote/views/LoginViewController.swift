@@ -31,12 +31,14 @@ class LoginViewController: UIViewController {
                 self!.signInButton.stopAnimation(animationStyle: .shake, revertAfterDelay: 1) {
                 }
         
-                print("Couldn't sign up: \(error?.localizedDescription)")
+                print("Couldn't sign in: \(error?.localizedDescription)")
                 
             } else {
+                // perform an animation
                 self!.signInButton.stopAnimation(animationStyle: .expand, revertAfterDelay: 1) {
-                    
                 }
+                UserDefaults.standard.set(true, forKey: "userSignedIn")
+                
                 self!.performSegue(withIdentifier: "loginSegue", sender: nil)
                 
             }
@@ -60,6 +62,7 @@ class LoginViewController: UIViewController {
                 self.signUpButton.stopAnimation(animationStyle: .expand, revertAfterDelay: 1) {
                     
                 }
+                
                 self.performSegue(withIdentifier: "loginSegue", sender: nil)
             }
         }
@@ -75,17 +78,24 @@ class LoginViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        // set dark mode if enabled
         let darkModeEnabled = UserDefaults.standard.bool(forKey: "darkModeEnabled")
         
         if #available(iOS 13.0, *){
             if darkModeEnabled {
-                UIApplication.shared.windows.first?.overrideUserInterfaceStyle = .dark
+//                UIApplication.shared.windows.first?.overrideUserInterfaceStyle = .dark
             }else {
                 UIApplication.shared.windows.first?.overrideUserInterfaceStyle  = .light
             }
         }
         
-       
+    }
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if UserDefaults.standard.bool(forKey: "userSignedIn"){
+            self.performSegue(withIdentifier: "loginSegue", sender: self)
+        }
     }
     /*
     // MARK: - Navigation

@@ -77,7 +77,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="DqT-DQ-ys1">
-                                <rect key="frame" x="10" y="158" width="164" height="83.5"/>
+                                <rect key="frame" x="10" y="158" width="164" height="107"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Appearance" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wPM-jw-9RV">
                                         <rect key="frame" x="0.0" y="0.0" width="164" height="20.5"/>
@@ -135,6 +135,12 @@
                                             </switch>
                                         </subviews>
                                     </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Backup" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bMn-sN-e6d">
+                                        <rect key="frame" x="0.0" y="86.5" width="164" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -243,7 +249,14 @@
                             <outlet property="delegate" destination="F9O-LU-M6S" id="Cd5-mj-IfL"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" title="Documents" id="IiP-q6-fMC"/>
+                    <navigationItem key="navigationItem" title="Documents" id="IiP-q6-fMC">
+                        <barButtonItem key="rightBarButtonItem" title="Sign Out" image="lock.circle" catalog="system" id="zST-aW-dnh">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="onSignOutBtnClicked:" destination="F9O-LU-M6S" id="6ZA-NP-hDX"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="I3n-kV-ZLP" id="RYW-nT-uyd"/>
                     </connections>
@@ -394,13 +407,14 @@
         <!--Home-->
         <scene sceneID="pa3-2Q-j88">
             <objects>
-                <navigationController title="Home" wantsFullScreenLayout="YES" automaticallyAdjustsScrollViewInsets="NO" id="MMf-KA-Uhr" sceneMemberID="viewController">
+                <navigationController title="Home" automaticallyAdjustsScrollViewInsets="NO" id="MMf-KA-Uhr" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="folder" catalog="system" id="jef-IC-D3N"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="q0U-6z-6FC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="108"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.0047460515899999996" green="0.016734196659999999" blue="0.270060992" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.00211765326" green="0.015818308270000001" blue="0.28506793400000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
@@ -484,6 +498,7 @@
         <image name="camera" catalog="system" width="128" height="94"/>
         <image name="folder" catalog="system" width="128" height="97"/>
         <image name="folder.badge.plus" catalog="system" width="128" height="91"/>
+        <image name="lock.circle" catalog="system" width="128" height="121"/>
         <image name="paintpalette" catalog="system" width="128" height="105"/>
         <image name="photo.on.rectangle.angled" catalog="system" width="128" height="100"/>
         <image name="wrench.and.screwdriver" catalog="system" width="128" height="120"/>

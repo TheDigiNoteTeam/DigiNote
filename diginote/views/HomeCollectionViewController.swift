@@ -14,7 +14,22 @@ import CRRefresh
 
 
 class HomeCollectionViewController: UICollectionViewController, UISearchBarDelegate{
-
+    
+    // log out user and remove his signIn information
+    // when he clicks the button
+    @IBAction func onSignOutBtnClicked(_ sender: Any) {
+        let firebaseAuth = Auth.auth()
+        
+        do{
+            try firebaseAuth.signOut()
+            
+        }catch let signOutError as NSError {
+            print("Error signing out: %@", signOutError)
+        }
+        self.dismiss(animated: true, completion: nil)
+        UserDefaults.standard.set(false, forKey: "userSignedIn")
+    }
+    
 
     // two variables to store data. One is
     // used to retain original data, when the user
