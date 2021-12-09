@@ -11,23 +11,31 @@ import FirebaseAuth
 import PDFKit
 import WebKit
 import CRRefresh
+import TransitionButton
 
 
 class HomeCollectionViewController: UICollectionViewController, UISearchBarDelegate{
     
+    @IBOutlet weak var signOutBtn: TransitionButton!
     // log out user and remove his signIn information
     // when he clicks the button
     @IBAction func onSignOutBtnClicked(_ sender: Any) {
+        
         let firebaseAuth = Auth.auth()
+      
         
         do{
             try firebaseAuth.signOut()
+            UserDefaults.standard.set(false, forKey: "userSignedIn")
             
         }catch let signOutError as NSError {
             print("Error signing out: %@", signOutError)
         }
+        
         self.dismiss(animated: true, completion: nil)
-        UserDefaults.standard.set(false, forKey: "userSignedIn")
+
+        
+        
     }
     
 
@@ -136,7 +144,7 @@ class HomeCollectionViewController: UICollectionViewController, UISearchBarDeleg
         
         // get the directory url of the app
         let documentsUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-
+        print (documentsUrl)
         // get teh file names withing the url directory
         do {
             let directoryContent = try FileManager.default.contentsOfDirectory(at: documentsUrl, includingPropertiesForKeys: nil, options: .skipsHiddenFiles)

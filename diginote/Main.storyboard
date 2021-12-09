@@ -259,6 +259,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="I3n-kV-ZLP" id="RYW-nT-uyd"/>
+                        <outlet property="signOutBtn" destination="zST-aW-dnh" id="CzC-SG-83L"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pfG-mm-VV0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

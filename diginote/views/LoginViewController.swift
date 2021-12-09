@@ -93,6 +93,10 @@ class LoginViewController: UIViewController {
     
     
     override func viewDidAppear(_ animated: Bool) {
+        
+        signInButton.setTitle("Sign In", for: .normal)
+        signUpButton.setTitle("Sign Up", for: .normal)
+        
         if UserDefaults.standard.bool(forKey: "userSignedIn"){
             self.performSegue(withIdentifier: "loginSegue", sender: self)
         }
