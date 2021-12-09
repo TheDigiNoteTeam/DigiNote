@@ -152,3 +152,40 @@ All major issues of the app has been solved. The app MVP is almost ready.
 ##### GIF!
 
 <img src="https://i.imgur.com/lYNUBXz.gif" width=600>
+
+## Unit 13 Submission
+The app MVP is ready.
+
+### Completed User Stories
+**Required Must-have Stories**
+
+We set out to do implement an digitalization app with certain requirements. Along the way we found out certain tasks took more time than we had anticipated. Furthermore, we initially sought to implement an app that be able to locally extract text from images. But the Vision Framework from iOS had terrible accuracy. So we decided to rely on Google's Cloud Vision (w/ Firebase) library. As such we had to implement a login function as auth was required for Firebase's cloud function. The local text extraction from Google wasn't very accurate either. 
+
+[x] User can take picture of a note with the camera.<br />
+[x] User can work with locally stored photos.<br />
+[x] The app can digitalize hand written English from the pictures.<br />
+[-] User can delete existing pictures/documents.<br />
+[x] User can save generated text in a PDF document.<br />
+[x] User can search the document names.<br />
+
+**Optional Nice-to-have Stories**
+
+[-] Backup to Cloud (e.g.: Dropbox, Google Drive)<br />
+[-] Allows to copy/paste parts of a document (not just handwritten notes e.g.: receipts)<br />
+[x] User can choose the theme of the App Dark/Ligh/Device<br />
+[-] Users can edit the converted documents<br />
+[-] Users can share the documents via social media apps.<br />
+
+**Extra Stories**
+We had to implement the followign storeis because we had in order to use Firebase. <br />
+[x] User can sign-in to Firebase.<br />
+[x] User can sign-up (w/ Firebase).<br />
+[x] User can log-out.<br />
+[x] User can pull to refresh the list of PDF files.<br />
+[x] User can name the PDF that will be produced with extracted text. <br />
+[x] User can read generated PDF documents. <br />
+
+### GIF!
+![](https://i.imgur.com/RZZA37g.gif)
+
+
