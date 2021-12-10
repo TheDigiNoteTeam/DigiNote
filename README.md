@@ -87,7 +87,8 @@ The application enables users to digitalize hand written notes. Primarily it wou
 
 
 ### [BONUS] Interactive Prototype
-<img src="https://i.imgur.com/D9Sx4g8.gif" width=600>
+![](https://i.imgur.com/D9Sx4g8.gif)
+<!-- <img src="https://i.imgur.com/D9Sx4g8.gif" width=600> -->
 
 
 ## Schema 
@@ -123,7 +124,8 @@ Document is the only object we will be dealing during the main development phase
 [x] User can work with locally stored photos. 
 
 ##### GIF
-<img src="https://i.imgur.com/xJXK2IQ.gif" width=600>
+![](https://i.imgur.com/xJXK2IQ.gif)
+<!-- <img src="https://i.imgur.com/xJXK2IQ.gif" width=600> -->
 
 
 #### Unit 11 Submission
@@ -135,7 +137,8 @@ This week had a setback and had to revise our app. The original intent was to us
 [x] Cloud Function for text extraction from image implemented
 
 ##### GIF
-<img src="https://i.imgur.com/HuVB4bo.gif" width=600>
+![](https://i.imgur.com/HuVB4bo.gif)
+<!-- <img src="https://i.imgur.com/HuVB4bo.gif" width=600> -->
 
 #### Unit 12 Submission
 All major issues of the app has been solved. The app MVP is almost ready.
@@ -150,8 +153,8 @@ All major issues of the app has been solved. The app MVP is almost ready.
 [x] The app can send images and receive extracted text from Cloud Vision. It's currently printed on the console and will be integrated within the next week.
 
 ##### GIF!
-
-<img src="https://i.imgur.com/lYNUBXz.gif" width=600>
+![](https://i.imgur.com/lYNUBXz.gif)
+<!-- <img src="https://i.imgur.com/lYNUBXz.gif" width=600> -->
 
 ## Unit 13 Submission
 The app MVP is ready.
